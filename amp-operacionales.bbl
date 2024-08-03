@@ -1,0 +1,29 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+Administrador%
+}{%
+Administrador%
+}{%
+{\protect \APACyear {2024}}%
+}]{%
+unicrom2024}
+\APACinsertmetastar {%
+unicrom2024}%
+\begin{APACrefauthors}%
+Administrador.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2024}{}{}.
+\newblock
+\APACrefbtitle {Historia del Amplificador Operacional.} {Historia del
+  amplificador operacional.}
+\newblock
+\begin{APACrefURL} \url{https://unicrom.com/historia-amplificador-operacional/}
+  \end{APACrefURL}
+\newblock
+\APACrefnote{Consultado el 26 de agosto de 2024}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}
