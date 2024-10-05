@@ -1,5 +1,14 @@
+# Entorno Virtual
+env/
+
+# Archivos
 *.pdf
-*.aux
 *.log
+*.synctex(busy)
 *.synctex.gz
-*.toc
+*.out
+*.aux
+*.bbl
+*.blg
+*.zip
+*.asv
