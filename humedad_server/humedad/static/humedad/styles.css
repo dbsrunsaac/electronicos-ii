@@ -1,0 +1,31 @@
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+    margin : 0;
+    padding : 0;
+}
+html{
+    box-sizing: border-box;
+    font-size: 62.5%; /* Now 1rem is equal to 1rem */
+}
+body{
+    font: normal normal 16px "Open Sans", Sans-serif;
+}
+ul{
+    list-style: none;
+}
+
+/*
+    DATA
+*/
+.data-content{
+    display:flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+}
+.data-content h2{
+    margin-bottom: 2rem;
+}
+
