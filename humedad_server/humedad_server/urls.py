@@ -21,5 +21,5 @@ from humedad import views
 
 urlpatterns = [
     path("humedads/", views.listar_humedad, name='listar_humedad'),
-    path("humedads1/", views.listar_humedad1, name='listar_humedad1'),
+    path("", views.listar_humedad1, name='listar_humedad1'),
 ]
