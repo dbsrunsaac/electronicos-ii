@@ -22,6 +22,9 @@ MySQL_Connection conn((Client *)&client);
 
 void setup() {
   Serial.begin(9600);
+  
+  pinMode(13, OUTPUT);
+
   while (!Serial); // wait for serial port to connect
   Ethernet.begin(mac_addr);
   Serial.println("Connecting...");
@@ -51,7 +54,11 @@ void setup() {
 }
 
 void loop() {
-  // 
+  digitalWrite(13, HIGH);
+  delay(1000);
+  digitalWrite(13, LOW);
+  delay(1000);
+
   humedad_bits = analogRead(A0);
   humedad_analog = map(humedad_bits, 0, 1023, 0, 100);
   Serial.print("Humedad del Suelo: ");
