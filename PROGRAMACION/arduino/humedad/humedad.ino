@@ -2,14 +2,15 @@
 #include <MySQL_Connection.h>
 #include <MySQL_Cursor.h>
 
-byte mac_addr[] = { 0xBC, 0x6E, 0x93, 0x47, 0xB2, 0x6E };
+// byte mac_addr[] = { 0xBC, 0x6E, 0x93, 0x47, 0xB2, 0x6E };
+byte mac_addr[] = { 0x74, 0xD4, 0x35, 0x55, 0xC2, 0x2F };
 
 IPAddress server_addr(127, 0, 0, 1);  // IP of the MySQL server
 char user[] = "root";                 // MySQL user login username
 char password[] = "Admin%123456";             // MySQL user login password
 
 // Sample query
-char INSERT_DATA[] = "INSERT INTO bdhumedad.THumedad (humedadBits, humedadAnalog) VALUES ('%s',%d)";
+char INSERT_DATA[] = "INSERT INTO bdhumedad.humedad_humedad (humedad_bits, humedad_analog) VALUES ('%s',%d)";
 
 char query[128];
 char humedad[10];
@@ -28,7 +29,7 @@ void setup() {
   while (!Serial); // wait for serial port to connect
   Ethernet.begin(mac_addr);
   Serial.println("Connecting...");
-  if (conn.connect(server_addr, 3306, user, password)) {
+  if (conn.connect(server_addr, 8000, user, password)) {
     delay(1000);
     
     // Initiate the query class instance
