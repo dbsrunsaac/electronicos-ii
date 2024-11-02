@@ -1,0 +1,36 @@
+Introduccion
+Materiales y métodos
+Resultados
+
+Intro
+Estado del arte
+Diseño del sistema
+Implementacion
+Conclusión
+
+
+Intro
+Estudios relacionados
+Materiales y métodos
+Resultados y discusiones
+Conclusiones
+
+Intro
+Correlated multiple sampling concept
+Implementación
+Aplicaciones
+Conclusiones
+Referencias
+
+
+Antecedentes
+Objetivos
+Marco Teorico
+Desarrollo
+Resultados
+
+
+
+
+
+
