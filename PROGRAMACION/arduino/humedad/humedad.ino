@@ -1,5 +1,5 @@
 // CONSTANTES
-const int TIEMPO_MUESTREO = 10;
+const float TIEMPO_MUESTREO = 1;
 
 // VARIABLES
 int humedad, humedadPorcentual;
@@ -23,7 +23,7 @@ void loop() {
   muestraFiltro = analogRead(A1);
   
   // Filtrado de la señal
-  correlacion = abs(humedadFiltro - muestraFiltro);
+  correlacion = humedadFiltro - abs(humedadFiltro - muestraFiltro);
   humedadPorcentualFiltro = map(correlacion, 0, 1023, 100, 0);
 
   Serial.print("Humedad MDC: ");
