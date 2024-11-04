@@ -42,8 +42,8 @@
 	keywordstyle=\color{blue},
 	stringstyle=\color{mymauve},
 	commentstyle=\color{mygreen},
+	numbers=none,
 	numbers=left,
-	numberstyle=\tiny\color{mygray},
 	stepnumber=1,
 	numbersep=10pt,
 	backgroundcolor=\color{white},
@@ -119,15 +119,73 @@
 	
 	% // ================== MARCO TEÓRICO ================== //
 	\section{Marco Teórico} 
+	\subsection{Amplificador Operacional}
+	Los amplificadores operacionales son dispositivos electrónicos compuestos por una red compleja elementos activos y pasivos tales como transistores, resistencias, esta compleja red permite a este elemento formalmente activo tener en la mayoría de los casos un comportamiento lineal en las diferentes aplicaciones, siendo su principal uso para el procesamiento de señales, las cuales incluyen ampliación, filtrado, acoplamiento de circuitos, rectificación y conmutación digital.
+	
+	Actualmente estos elementos se pueden encontrar en forma de circuitos integrados siendo muy utilizados en la electrónica analógica debido a su versatilidad, su alta ganancia e impedancia de entrada hacen que este dispositivo sea ideal para realizar operaciones matemáticas como suma, resta, integración y diferenciación y entre sus configuraciones más comunes se puede apreciar la de inversor y no inversor como se aprecian en las figura \ref{fig:opam-no-inversor}, \ref{fig:opam-inversor} respectivamente.
+	
+	\subsubsection{Amplificador Operacional No Inversor}
+	Configuración caracterizada por tener la señal conectada en la entrada \textbf{No Inversora} del amplificador operacional.
+	
+	Siendo la ganancia del OPAM la que se muestra en \ref{eq:av-no-inversora}
+	\begin{equation}
+		A_v = 1 + \frac{R_f}{R_g}
+		\label{eq:av-no-inversora}
+	\end{equation}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.25\textwidth]{media/opam-no-inversor}
+		\caption{Amplificador Operacional - Configuración No Inversor}
+		\label{fig:opam-no-inversor}
+	\end{figure}
+	
+	La señal de salida mantendrá la fase de la señal viéndose afectada por la ganancia.
 	
 	
+	\subsubsection{Amplificador Operacional Inversor}
+	Configuración caracterizada por tener la señal conectada en la entrada \textbf{Inversora} o negativa del amplificador operacional.
+	
+	Siendo la ganancia del OPAM la que se muestra en \ref{eq:av-inversora}
+	\begin{equation}
+		A_v = \frac{R_f}{R_g}
+		\label{eq:av-inversora}
+	\end{equation}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.3\textwidth]{media/opam-inversor}
+		\caption{Amplificador Operacional - Configuración Inversosr}
+		\label{fig:opam-inversor}
+	\end{figure}
+	
+	La señal de salida se encontrará opuesta en fase en referencia a la señal de entrada viéndose afectada por el factor de ganancia.
+	
+	\subsubsection{Amplificador Operacional - Comparador}
+	Cuando un amplificador operacional se configura como comparador, su función cambia respecto a la amplificación. En lugar de amplificar una señal de entrada, el comparador simplemente determina cuál de las dos entradas (inversora o no inversora) tiene un voltaje más alto.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.4\textwidth]{media/opam-comparador}
+		\caption{Amplificador Operacional - Configuración Comparador}
+		\label{fig:opam-comparador}
+	\end{figure}
+	
+	Esta configuración es útil para detectar si una señal supera cierto umbral, generando una salida digital alta o baja dependiendo de la comparación.
+	
+	\subsection{Servidor Web}
+	Un servidor web es un sistema de software que almacena, procesa y entrega contenido web a través de internet, respondiendo a solicitudes de clientes (como navegadores) utilizando protocolos, principalmente HTTP o HTTPS. Su función es interpretar estas solicitudes, recuperar los recursos solicitados (páginas, imágenes, etc.) y entregarlos al cliente para su visualización.
+	
+	Una base de datos es un sistema organizado de almacenamiento de datos que permite la gestión eficiente de grandes volúmenes de información. Utiliza un modelo estructurado (relacional, documental, entre otros) para almacenar y recuperar datos de manera rápida y precisa, proporcionando mecanismos de consulta (como SQL) para acceder y manipular la información almacenada.
+	
+	\subsection{Base de datos}
+	Una base de datos es un sistema estructurado de almacenamiento de información diseñado para gestionar, organizar y recuperar datos de manera eficiente. Utiliza un conjunto de reglas y modelos (como el modelo relacional o documental) que permite organizar la información en tablas, documentos o colecciones, facilitando el acceso y manipulación de grandes volúmenes de datos. Las bases de datos son gestionadas por sistemas de administración de bases de datos (DBMS, por sus siglas en inglés), que ofrecen mecanismos de consulta, seguridad y consistencia en el manejo de la información, permitiendo operaciones como la creación, lectura, actualización y eliminación de datos (CRUD).
 	% // ================== MATERIALES Y MÉTODOS ================== //
 	\section{Materiales y métodos}
 	\subsection{Sensor de humedad YL-69}
 	Este sensor tiene la capacidad de medir la humedad del suelo. Aplicando una pequeña tensión entre los terminales del módulo YL-69 hace pasar una corriente que depende básicamente de la resistencia que se genera en el suelo y ésta depende mucho de la humedad. Por lo tanto al aumentar la humedad la corriente crece y al bajar la corriente disminuye.
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.5\textwidth]{media/[YL-69] YL-69 Soil Moisture Hygrometer Detection Humidity Sensor Module For arduino Development Board DIY .jpg}
+		\includegraphics[width=0.4\textwidth]{media/[YL-69] YL-69 Soil Moisture Hygrometer Detection Humidity Sensor Module For arduino Development Board DIY .jpg}
 		\caption{Sensor de Humedad YL-69}
 		\label{fig:enter-label}
 	\end{figure}
@@ -155,25 +213,9 @@
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.4\textwidth]{media/arduino-uno.jpg}
+		\includegraphics[width=0.3\textwidth]{media/arduino-uno.jpg}
 		\caption{Arduino UNO}
 		\label{fig:arduino-uno}
-	\end{figure}
-	
-	\subsection{Filtros de ruido}
-	Los filtros de ruido son dispositivos o algoritmos diseñados para eliminar o reducir el ruido no deseado en señales eléctricas, acústicas o digitales. Se clasifican en:
-	
-	\begin{itemize}
-		\item Filtros pasivos: Utilizan componentes pasivos como resistencias, condensadores e inductores. Son simples y no requieren alimentación externa.
-		\item Filtros activos: Incorporan amplificadores operacionales para mejorar la señal, permitiendo una mayor precisión.
-		\item Filtros digitales: Procesan señales en el dominio digital mediante algoritmos. Son flexibles y se pueden adaptar para diferentes tipos de ruido. El objetivo principal de los filtros es mejorar la calidad de la señal útil, facilitando su interpretación o procesamiento posterior.
-	\end{itemize}
-	
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=0.3\textwidth]{media/filtro-pasa-bajos.png}
-		\caption{Filtro pasabajos de primer orden}
-		\label{fig:filtro-pasabajos}
 	\end{figure}
 	
 	\subsection{Raphanus Sativus}
@@ -189,6 +231,101 @@
 	
 	% // ================== IMPLEMENTACIÓN ================== //
 	\section{Implementación}
+	
+	\subsection{Microcontralador ATMEGA328p}
+	Para realizar el acondicionamiento de la señal se hizo uso del microcontrolador Arduino UNO Rev3 el cual a su vez depende del ATmega328 para el procesamiento, control y respuesta para una determinada entrada, este microcontrolador esta compuesto por diferentes etapas o bloques que se aprecian en la figura \ref{fig:esquema-atmega328} el bloque A/D (Convertidor Analógico - Digital) de 10 bits la parte central de este estudio y mediante el cual se realizará el filtrado de la señal de ruido facilitando el acondicionando de la señal del entrada del sensor de humedad YL-69.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\textwidth]{media/esquema-atmega328}
+		\caption{Diagrama de Bloques - ATmega328}
+		\label{fig:esquema-atmega328}
+	\end{figure}
+	
+	\subsection{Conversor Analógico Digital}
+	Un conversor analógico-digital (ADC, por sus siglas en inglés) es un dispositivo que convierte una señal analógica (un voltaje continuo) en una señal digital (un número discreto que representa el nivel de la señal analógica). En el diseño de muchos ADCs, se incluyen amplificadores operacionales como componentes clave para mejorar la precisión y exactitud de la conversión. A continuación, te explico su funcionamiento detallado en función del amplificador operacional y te presento un diagrama de bloques típico.
+	
+	\subsection{Muestreo doble correlacionado}
+	La técnica de muestreo doble correlacionado se utiliza en el acondicionamiento de señales, particularmente en aplicaciones donde se requiere extraer una señal de bajo nivel inmersa en ruido. Consiste en realizar dos etapas de muestreo correlacionado (una detrás de otra para una diferencia de tiempo mínima).
+	
+	En el muestreo doble correlacionado se tiene la señal de muestra en la cual se recupera una muestra de la señal con el ruido adicional y una segunda (señal de referencia) en la cual solo se trata de capturar el ruido de la señal siendo así que al aplicar la diferencia entre ambas se pueda eliminar/filtrar el ruido.
+	
+	Esto se puede ejemplificar en la ecuación \ref{eq:mdc}
+	
+	\begin{align}
+		C_o &= V_m + V_r - V_r
+		\label{eq:mdc}
+		C_o &= V_m
+	\end{align}
+	Donde:\\
+	$C_o$: Señal de salida correlacionada\\
+	$V_m$: Señal de muestreo \\
+	$V_r$: Señal de ruido\\
+	
+	\subsection{Implementación en Arduino}
+	
+	Para la implementación a nivel lógico se hizo uso del entorno Arduino IDE 2.3.0 la cual es un entorno gráfico para el desarrollo de aplicaciones en hardware mediante arduino, el código definido se dividió en 3 partes principales.
+	
+	\begin{itemize}
+		\item Variables
+		\item Función setup()
+		\item Función loop()
+	\end{itemize}
+	
+	En la primera parte se describieron las variables de trabajo para la medición de humedad mediante el sensor mediante el filtro correlacionado y sin el, así como la constante de tiempo (en milisegundos) para el muestreo de señal de ruido.
+	
+	\begin{lstlisting}[caption=Arduino Muestreo doble Correlacionado, numbers=none, label=cd:codigo-mdc]
+		// CONSTANTES
+		const float TIEMPO_MUESTREO = 1;
+		
+		// VARIABLES
+		int humedad, humedadPorcentual;
+		int humedadFiltro, muestraFiltro, humedadPorcentualFiltro, correlacion;
+		
+		void setup() {
+			// Iniciar la comunicacion serial
+			Serial.begin(9600);
+		}
+		
+		void loop() {
+			// Sensado sin filtro
+			humedad = analogRead(A0); // Salida en bits
+			humedadPorcentual = map(humedad, 0, 1023, 100, 0); // Salida porcentual analogica
+			Serial.print("Humedad SF: ");
+			Serial.println(humedad);
+			
+			// Sensando mediante el algoritmo de muestreo doble correlacionado
+			humedadFiltro = analogRead(A1); // Salida en bits
+			delayMicroseconds(TIEMPO_MUESTREO);
+			muestraFiltro = analogRead(A1);
+			
+			// Filtrado de la senal
+			correlacion = humedadFiltro - abs(humedadFiltro - muestraFiltro);
+			humedadPorcentualFiltro = map(correlacion, 0, 1023, 100, 0);
+			
+			Serial.print("Humedad MDC: ");
+			Serial.println(correlacion);
+			
+			delay(3000);
+		}
+	\end{lstlisting}
+	 
+	En el código definido en el bloque \ref{cd:codigo-mdc} la parte central y filtrado de la señal se encuentra dentro de la función \textbf{loop()} la cual toma una muestra de la señal del sensor y su respectiva referencia 1 milisegundo después para después realizar la diferencia de estas señales, sin embargo en el código antes propuesto el algoritmo de correlación  se vio modificado debido a que la diferencia para el tiempo de muestreo para la señal de referencia recupera casi el mismo valor que la señal de muestra, siendo así que la diferencia será el valor de ruido, es por ello que para obtener una señal de correlación adecuada primer se obtiene el valor del ruido y este se resta a la señal de referencia original, esto se puede apreciar en el listing \ref{cd:mdc-modificado}
+	
+	\begin{lstlisting}[caption=Arduino Muestreo doble Correlacionado, numbers=none, label=cd:mdc-modificado]
+		void loop() {
+			
+			// Sensando mediante el algoritmo de muestreo doble correlacionado
+			humedadFiltro = analogRead(A1); // Salida en bits
+			delayMicroseconds(TIEMPO_MUESTREO);
+			muestraFiltro = analogRead(A1);
+			
+			// Filtrado de la senal
+			correlacion = humedadFiltro - abs(humedadFiltro - muestraFiltro);
+			humedadPorcentualFiltro = map(correlacion, 0, 1023, 100, 0);
+			
+		}
+	\end{lstlisting}
 	
 	\bibliographystyle{IEEEtran}
 	\bibliography{biblio}
