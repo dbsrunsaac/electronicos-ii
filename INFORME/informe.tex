@@ -30,8 +30,7 @@
 	pdfauthor={Circuitos Electrónicos II},
 	pdftitle={Introducción a LaTeX}
 }
-% Código de programación 
-
+% Código de programación
 \definecolor{mygreen}{rgb}{0,0.6,0}
 \definecolor{mygray}{rgb}{0.5,0.5,0.5}
 \definecolor{mymauve}{rgb}{0.58,0,0.82}
@@ -202,7 +201,7 @@
 	\begin{itemize}
 		\item Precisión limitada: No proporciona una medición altamente precisa de la humedad del suelo. 
 		\item Corrosión: Las sondas están hechas de un material que puede corroerse con el tiempo debido al contacto continuo con la humedad del suelo.
-		\item Interferencias en el suelo: Minerales, sales u otros elementos en el suelo pueden afectar las lecturas, causando imprecisiones.
+		\item Interferencias en el suelo: Minerales|, sales u otros elementos en el suelo pueden afectar las lecturas, causando imprecisiones.
 		\item Alcance corto: Detecta humedad solo en el área inmediata alrededor de las sondas, lo que puede no representar correctamente el estado general del suelo
 		\item Consumo de energía: Mantenerlo constantemente encendido puede resultar en un consumo de energía elevado
 		\item Lecturas no calibradas: No tiene una calibración interna, por lo que las lecturas pueden variar entre diferentes sensores o entornos, necesitando ajustes adicionales.
@@ -232,6 +231,22 @@
 	% // ================== IMPLEMENTACIÓN ================== //
 	\section{Implementación}
 	
+	\subsection{Amplificador Operacional en Arduino UNO Rev3}
+	Las aplicaciones del amplificador diferencial se suelen aplicar en cada rama de la ingeniero electrónica desde los sistemas digitales hasta el procesamiento digital de señales se puede apreciar su influencia e importancia para este dentro del área de los microcontroladores, siendo así que este figura en partes importantes del Arduino UNO para el control en la alimentación y la otra un tanto más relevante el conversor A/D integrado dentro del ATmega328p, esta representación se puede apreciar en la figura \ref{fig:arduino-uno-esquematico}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\textwidth]{media/arduino-uno-esquema}
+		\caption{Circuito esquemático - Arduino UNO Rev3}
+		\label{fig:arduino-uno-esquematico}
+	\end{figure}
+	
+	Para que el amplificador operacional pueda controlar la fuente de alimentación fue configurado como comparador de voltajes y mediante el cual se indica si Arduino UNO esta siendo alimentado por su entrada $V_in$ o mediante una conexión USB.
+	
+	Esta comportamiento se define gracias al juego de resistencias y salida mediante un diodo led para el amplificador U5B, el cual se encarga de gestionar la energía para un funcionamiento adecuado.
+	
+	Como se menciono previamente los amplificadores operacionales también se encargan de otra parte muy importante esta vez centrada en el procesamiento de datos y la cual consiste en la conversión de los datos analógicos a digitales, en este apartado este dispositivo electrónico trabaja en conjunto a otras etapas para poder amplificar, tomar una muestra, comparar con una señal de referencia para finalmente convertir el resultado a un número binario en relación con la amplitud de la señal analógica.
+		
 	\subsection{Microcontralador ATMEGA328p}
 	Para realizar el acondicionamiento de la señal se hizo uso del microcontrolador Arduino UNO Rev3 el cual a su vez depende del ATmega328 para el procesamiento, control y respuesta para una determinada entrada, este microcontrolador esta compuesto por diferentes etapas o bloques que se aprecian en la figura \ref{fig:esquema-atmega328} el bloque A/D (Convertidor Analógico - Digital) de 10 bits la parte central de este estudio y mediante el cual se realizará el filtrado de la señal de ruido facilitando el acondicionando de la señal del entrada del sensor de humedad YL-69.
 	
@@ -253,7 +268,7 @@
 	Esto se puede ejemplificar en la ecuación \ref{eq:mdc}
 	
 	\begin{align}
-		C_o &= V_m + V_r - V_r
+		C_o &= V_m + V_r - V_r \\
 		\label{eq:mdc}
 		C_o &= V_m
 	\end{align}
@@ -326,6 +341,81 @@
 			
 		}
 	\end{lstlisting}
+	
+	% // ================== CULTIVOS  ================== //
+	\section{Cultivo del Rhapanus Sativus}
+	\subsection{Preparación de la Maceta y el Sustrato}
+	Para la siembra del rabanito, emplearemos una maceta de polipropileno de 15 $cm^2$. Se adecuó el envase de modo que tenga un correcto drenaje y se agregó tierra rica en nutrientes para favorecer el crecimiento de las plántulas.
+	\subsection{ Siembra de Rábanos}
+	Se emplearon alrededor de 50 semillas de rábano, sembradas en el envase de polipropileno previamente preparado. Aproximadamente 30 de ellas germinaron en los primeros 5 días. A los diez días de la siembra, comenzaron a aparecer las primeras hojas verdaderas en las plantas.
+	Para el análisis, se seleccionaron ocho plántulas de 3 cm de altura, distribuidas en el envase a una distancia de 5 cm entre cada una, con el objetivo de asegurar un crecimiento uniforme y adecuado espacio para cada plántula.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.35\textwidth]{media/Semillas.jpg}
+		\caption{Semillas de Raphanus Sativus en preparación para ser plantadas}
+		\label{fig:raphanus-semillas}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.4\textwidth]{media/Dia 5.jpg}
+		\caption{Crecimiento de la planta al quinto día}
+		\label{fig:raphanus-dia5}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.4\textwidth]{media/Dia 10.jpg}
+		\caption{Crecimiento de la planta al décimo día}
+		\label{fig:raphanus-dia10}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\linewidth]{media/Dia 15 .jpg}
+		\caption{Crecimiento de la planta al quinceavo día}
+		\label{fig:raphanus-dia15}
+	\end{figure}
+	
+	\subsection{Monitoreo de Humedad en el Sustrato}
+	En el nuevo envase, se colocaron los sensores de humedad a una distancia de 10 cm entre ellos. Esta medida fue recomendada para obtener lecturas similares, especialmente en sustratos homogéneos, ya que ayuda a lograr una medición uniforme de la humedad en el área.
+	Las lecturas de los sensores se registraron cada 5 días. A continuación, se presenta un cuadro con los datos registrados en el monitoreo:
+	
+	De acuerdo a algunos datos el porcentaje sugerido de humedad para la planta varía entre 60\% y 80 \%, de acuerdo a ello, la planta era regada cada 2 días manteniendo el porcentaje sugerido.
+	
+	\begin{table}[]
+		\centering
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			\textbf{Fechas} & \textbf{Acción}     & \textbf{Humedad S1} & \textbf{Humedad S2} \\ \hline
+			15 de Octubre   & Siembra             & 51\%                & 49\%                \\ \hline
+			20 de Octubre   & Primeras Hojas      & 60\%                & 57\%                \\ \hline
+			25 de Octubre   & Hojas Desarrolladas & 81\%                & 79\%                \\ \hline
+			30 de Octubre   & Plantula 5CM        & 80\%                & 76\%                \\ \hline
+		\end{tabular}
+	\end{table}
+	
+	\subsection{Observación del Crecimiento}
+	Como se mencionó, las plantas de rabanito requieren un nivel de humedad en el rango de 60\% a 80\% para garantizar un buen desarrollo. Este nivel es fundamental para que la planta crezca de manera óptima y produzca rabanitos de sabor agradable.
+	
+	Según algunos estudios, cuando la humedad es insuficiente, la planta no se desarrolla de manera eficiente y los rabanitos tienden a presentar un sabor más agrio y desagradable, lo que disminuye su calidad.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.35\textwidth]{media/Opt 15.jpg}
+		\caption{Raphanus Sativus entre el 60\% y 80\%}
+		\label{fig:raphanus-humedad-optima}
+	\end{figure}
+	En el día 15, se observó que algunas plántulas murieron debido al exceso de agua, ya que la humedad superaba el rango establecido. 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.35\textwidth]{media/H_Mayor.jpg}
+		\caption{Raphanus Sativus con una humedad superior 80\%}
+		\label{fig:raphanus-humedad-excesiva}
+	\end{figure}
+	
+	
 	
 	\bibliographystyle{IEEEtran}
 	\bibliography{biblio}

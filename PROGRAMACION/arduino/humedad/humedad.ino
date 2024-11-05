@@ -16,18 +16,19 @@ void loop() {
   humedadPorcentual = map(humedad, 0, 1023, 100, 0); // Salida porcentual analógica
   Serial.print("Humedad SF: ");
   Serial.println(humedad);
+  Serial.println(humedadPorcentual);
 
   // Sensando mediante el algoritmo de muestreo doble correlacionado
   humedadFiltro = analogRead(A1); // Salida en bits
   delayMicroseconds(TIEMPO_MUESTREO);
   muestraFiltro = analogRead(A1);
   
-  // Filtrado de la señal
+  // Filtrado de la señale
   correlacion = humedadFiltro - abs(humedadFiltro - muestraFiltro);
   humedadPorcentualFiltro = map(correlacion, 0, 1023, 100, 0);
 
   Serial.print("Humedad MDC: ");
-  Serial.println(correlacion);
+  Serial.println(humedadPorcentualFiltro);
 
   delay(3000);
 }
@@ -37,8 +38,9 @@ void loop() {
 /*
   Recibe como parámetro la humedad medida
 */
-void filtrarSensor(float humedadFiltro){
-
+float analogToPorcentual(float humedadSensor){
+  float humedadPorcentual;
+  // return humedadPorcentual = 100*humedadSensor/1023;
 }
 
 
